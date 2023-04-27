@@ -19,6 +19,7 @@ char character(char start, int offset)
 	}
 	else
 		throw invalidCharacterException;
+	cout << "cheese";
 	if (isalpha(target))
 	{
 		cout << "this worked again";
