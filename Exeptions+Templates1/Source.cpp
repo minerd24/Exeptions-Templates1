@@ -3,40 +3,47 @@
 // 4/27/2023
 
 #include <iostream>
-#include <iomanip>
 #include <cctype>
 
 using namespace std;
 
 char character(char start, int offset)
 {
-	int invalidCharacterException = NULL, invalidRangeException = NULL;
-	char target;
+	string invalidCharacterException = "Starting Character Invalid.";
+	int invalidRangeException = 5;
+	char target = NULL;
 	if (isalpha(start))
 	{
 		target = start + offset;
+		cout << target;
 	}
 	else
 		throw invalidCharacterException;
 	if (isalpha(target))
 	{
+		cout << "this worked again";
 		return target;
 	}
 	else
-		throw invalidRangeException;
+		throw "Offset Character Invalid.";
 }
 
 int main()
 {
-	char driver = 'd', holdr;
-	int offDriver = '2';
+	char driver = 'a', holdr;
+	int offDriver = '1';
 	try
 	{
 		holdr = character(driver, offDriver);
 		cout << holdr;
 	}
-	catch (int invalidCharacterException)
+	catch (string invalidCharacterException)
 	{
-		cout << "Whoops, That isn't correct."
+		cout << invalidCharacterException;
 	}
+	catch (int invalidRangeException)
+	{
+		cout << "Invalid Range.";
+	}
+	return 0;
 }
